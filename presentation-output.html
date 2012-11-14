@@ -1,0 +1,686 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google IO 2012</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="source/theme/css/default.css">
+  <link rel="stylesheet" media="all" href="source/theme/css/app.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="source/theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="source/js/slides" src="source/js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+<!-- <slide class="logoslide nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo.png"></span>
+  </article>
+</slide>
+ -->
+<slide class="title-slide segue nobackground">
+  <aside class="gdbar"><img src="source/images/sass-logo-128.png"></aside>
+  <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <hgroup class="auto-fadein">
+    <h1 data-config-title><!-- populated from slide_config.json --></h1>
+    <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+    <p data-config-presenter><!-- populated from slide_config.json --></p>
+  </hgroup>
+</slide>
+
+
+<slide class="segue" >
+  
+    <aside class="gdbar"><img src="source/images/sass-logo-128.png"></aside>
+    <hgroup class="auto-fadein">
+
+      <h2>What is Sass?</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>What is Sass?</h3>
+      <h2>Setup</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><!-- - You need ruby to install and run SASS, which is already on your system if you are a mac user, and probably is included in your linux distro -->
+
+<ul>
+<li><code>gem install sass</code></li>
+<li>Command line: <code>sass --watch style.scss:style.css</code></li>
+<li>GUI: CodeKit, LiveReload, compass APP</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>What is Sass?</h3>
+      <h2>The Syntax</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><!-- Exp. SASS vs. SCSS -->
+
+<div class="flexy">
+<pre class="prettyprint" data-lang="sass">
+$primary: #3bbfce;
+$margin: 16px;
+
+.content-navigation
+  border-color: $primary
+  color: darken($primary, 9%)
+
+.border
+  padding: $margin /2
+  border-color: rgba($primary,0.8)
+
+</pre>
+<pre class="prettyprint" data-lang="scss">
+$primary: #3bbfce;
+$margin: 16px;
+
+.content-navigation {
+  border-color: $primary;
+  color:
+    darken($primary, 9%);
+}
+
+.border {
+  padding: $margin / 2;
+  border-color: rgba($primary,0.8)
+}
+</pre>
+</div></article>
+ 
+</slide>
+
+<slide class="segue" >
+  
+    <aside class="gdbar"><img src="source/images/sass-logo-128.png"></aside>
+    <hgroup class="auto-fadein">
+
+      <h2>Why Sass?</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>SASS is DRY</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Variables and nesting</li>
+<li>@extend classes</li>
+<li>Functions, Mixins, and more</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>Variables</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><div class="flexy">
+<pre class="prettyprint" data-lang="scss">
+$primary: green;
+$bodyMargin: 10px;
+
+.page {
+  border-color: $primary;
+  margin-left: $bodyMargin;
+}
+
+</pre>
+
+<pre class="prettyprint" data-lang="css">
+.page {
+  border-color:green;
+  margin:10px;
+}
+</pre>
+</div>
+
+<!-- Imagine using this value throughout your stylesheet, but being able to change it in one place --></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>Nesting</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><div class="flexy">
+<pre class="prettyprint" data-lang="scss">
+.contact-form {
+  p {
+    color:red;
+  }
+
+  a {
+    background: blue;
+    <b>&:hover</b> {
+      background:red;
+    }
+  }
+
+  label {
+    padding:0;
+  }
+}
+</pre>
+
+<pre class="prettyprint" data-lang="css">
+.contact-form p {
+  color:red;
+}
+
+.contact-form a {
+  background:blue;
+}
+
+.contact-form a:hover {
+  background:red;
+}
+
+.contact-form label {
+  padding:0;
+}
+
+</pre>
+</div></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>@extend</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><!-- I think this is great, because it gives more control to the CSS syler bring the power of OOCS into your spreadsheet, not your markup -->
+
+<div class="flexy">
+<pre class="prettyprint small" data-lang="scss">
+  .btn {
+    display:inline-block;
+    border-radius:4p;
+  }
+
+  .cta {
+    @extend .btn;
+    font-weight:bold;
+  }
+
+  .warn {
+    @extend .btn;
+    @extend .cta;
+    color:red;
+  }
+
+<!-- .widget .blog widget etc.   -->
+
+</pre>
+<pre class="prettyprint small" data-lang="css">
+
+ .btn, .cta, .warn {
+   display: inline-block;
+   border-radius: 4p;
+ }
+
+ .cta, .warn {
+   font-weight: bold;
+ }
+
+ .warn {
+   color: red;
+ }
+
+</pre>
+</div></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>Mixins: roll your own</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><strong>Mixins allow you to:</strong></p>
+<p>Automate common workflows</p>
+<p>Effectively Leverage SASS functions</p>
+<p>Easily develop your own toolkit or framework</p>
+<ul class="build">
+<li><b>Example: Named Media Queries (ala Chris Coyier)</b></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>Mixins: Setup</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><div class="flexy">
+<pre class="prettyprint small" data-lang="scss">
+
+@mixin breakpoint($point) {
+  @if $point == designer {
+    @media (max-width: 1600px)
+    { @content; }
+  }
+
+  @if $point == developer {
+    @media (max-width: 1250px)
+    { @content; }
+  }
+}
+
+</pre>
+<pre class="prettyprint small" data-lang="scss">
+
+.breakpoint-example {
+
+  @include breakpoint(designer) {
+    color:red;
+  }
+
+  @include breakpoint(developer){
+    color:blue;
+  }
+ }
+}
+</pre>
+</div></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>Mixins: Result</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint small" data-lang="css">
+
+@media (max-width: 1600px) {
+  .breakpoint-example {
+    color: red;
+  }
+}
+
+@media (max-width: 1250px) {
+  .breakpoint-example {
+    color: blue;
+  }
+}
+</pre>
+
+<!-- Other examples: - REM sizer, responsive calculations, Compass -->
+
+<!-- Not that we should be targeting breakpoints like this, but think about how this makes shifting things around easy --></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>built in functions</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint small" data-lang="scss">
+  .btn {
+    background:blue;
+    padding: round(3.1415926)
+    &:hover {
+      background:darken(blue,10%);
+    }
+  }
+</pre>
+
+<pre class="prettyprint small" data-lang="css">
+
+.btn {
+  padding: 3;
+}
+.btn:hover {
+  background: #0000cc;
+}
+<pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Sass?</h3>
+      <h2>Partials</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre>
+  styles
+    |--- base.scss // the mothership
+    |--- <b>_type.scss</b>
+    |--- <b>_widgets.scss</b>
+    |--- <b>_layout.scss</b>
+</pre>
+
+<pre class="prettyprint small" data-lang="scss">
+// base.scss
+@import "type";
+@import "widgets";
+@import "layout";
+</pre>
+
+<!-- Benefits: 1. Organization 2. Easier Version Control --></article>
+ 
+</slide>
+
+<slide class="segue" >
+  
+    <aside class="gdbar"><img src="source/images/sass-logo-128.png"></aside>
+    <hgroup class="auto-fadein">
+
+      <h2>It's better with Compass</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Compass is easy</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><code>gem install compass</code></li>
+<li><code>compass init</code></li>
+<li><code>compass watch</code></li>
+</ul>
+<p>Compass will watch and compile all scss files in your stylesheet directory</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Main features</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>CSS3 Mixins</li>
+<li>Automatic spriting</li>
+<li>Grid plugins</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Prefix-free CSS3</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="scss">
+  @import "compass/css3";
+
+  body{
+    @include background(linear-gradient(left top, white, #dddddd));
+  }
+</pre>
+
+<!-- - You could use your own mixins, or a mixin pack from someone else, but compass is updated regularly, and stays very close
+to accepted syntax. (it's not worth the hassle)
+ --></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Prefix-free CSS3</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="css">
+body {
+  background: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
+    background: -webkit-linear-gradient(left top, #ffffff, #dddddd);
+    background: -moz-linear-gradient(left top, #ffffff, #dddddd);
+    background: -o-linear-gradient(left top, #ffffff, #dddddd);
+    background: linear-gradient(left top, #ffffff, #dddddd);
+    // That was easy
+}
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Grids with Susy</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><figure class="ag-btn">
+  <div class="ag1"><p><strong>Column</strong> 2 of&nbsp;10</p></div>
+  <div class="ag2">
+    <p><strong>Column</strong> 6 of&nbsp;10</p>
+    <div class="ag4"><p><strong>Column</strong> 3 of&nbsp;6</p></div>
+    <div class="ag5"><p><strong>Column</strong> 3 of 6&nbsp;(omega)</p></div>
+    <div class="ag6"><p><strong>Column</strong> 2 of&nbsp;6</p></div>
+    <div class="ag7">
+      <p><strong>Column</strong> 4 of 6&nbsp;(omega)</p>
+      <div class="ag8"><p><strong>Column</strong> 2 of&nbsp;4</p></div>
+      <div class="ag9"><p><strong>Column</strong> 2 of 4&nbsp;(omega)</p></div>
+      <div class="ag10"><p><strong>Column</strong>&nbsp;auto</p></div>
+    </div>
+  </div>
+  <div class="ag3"><p><strong>Column</strong> 2 of 10&nbsp;(omega)</p></div>
+</figure>
+
+<!-- Include a grid built with SUSY? -->
+
+<!--  ex. Greg and I developing our own patterns, mixins--></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Grid code</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="scss">
+.ag1 { @include span-columns(2,10); }
+.ag2 { @include span-columns(6,10); }
+.ag3 { @include span-columns(2 omega, 10); }
+.ag4 { @include span-columns(3,6); }
+.ag5 { @include span-columns(3 omega,6); }
+.ag6 { @include span-columns(2,6); }
+.ag7 { @include span-columns(4 omega,6); }
+.ag8 { @include span-columns(2,4); }
+.ag9 { @include span-columns(2 omega,4); }
+</pre>
+
+<p>or "semantic" code</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Other Grids</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="http://compass-style.org/reference/blueprint/grid/">Compass Blueprint</a></li>
+<li><a href="http://baselinecss.com/">Baseline CSS grid</a></li>
+<li><a href="http://github.com/bangpound/compass-drupal-zen-plugin">Drupal Zen</a></li>
+<li><a href="http://semantic.gs/">The Semantic Grid System</a></li>
+<li><a href="http://goldengridsystem.com/">Golden Grid System</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Spriting</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Our file structure:
+<pre>
+  img
+    |--social
+       |--- fb.png
+       |--- tw.png
+       |--- li.png
+</pre></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3>Why Compass?</h3>
+      <h2>Spriting</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><!-- A folder of images,  -->
+
+<pre class="prettyprint" data-lang="scss">
+  .social {
+  @import "social/*.png";
+  @include all-social-sprites;
+  }
+</pre>
+
+<pre class="prettyprint" data-lang="css">
+  .social-sprite,
+  .social-fb,
+  .social-tw,
+  .social-li   { background: url('/img/social-s34fe0604ab.png') no-repeat; }
+
+  .social-fb   { background-position: 0 -32px; }
+  .social-tw    { background-position: 0 -64px; }
+  .social-li   { background-position: 0 -96px; }
+</pre>
+
+<!-- You can easily swap out sprites without having to resprite the whole image  --></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3></h3>
+      <h2>That's cool; Why Bother?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Baby Steps: you can use as much or as little as you need</li>
+<li>Build your own workflow/mixin library</li>
+<li>Be amazed at the time you save</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h3></h3>
+      <h2>Sources/Additional Resources</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="http://thesassway.com/">http://thesassway.com/</a></li>
+<li><a href="http://chriseppstein.github.com/">http://chriseppstein.github.com/</a></li>
+<li><a href="compass-project.org">Compass-project.org</a></li>
+<li><a href="http://css-tricks.com/search-results/?q=sass">CSS-Tricks on sass</a></li>
+<li><a href="www.stackoverflow.com">#sass on Stack Oveflow</a></li>
+</ul></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="source/images/google_developers_icon_128.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>&lt; Thanks! &gt;</h2>
+
+  </article>
+  <p class="auto-fadein" data-config-contact>
+    <!-- populated from slide_config.json -->
+  </p>
+</slide>
+
+<!-- <slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article> </slide> -->
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36188977-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
