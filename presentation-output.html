@@ -64,6 +64,8 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article ><!-- - You need ruby to install and run SASS, which is already on your system if you are a mac user, and probably is included in your linux distro -->
 
+<!-- Windows users: http://rubyinstaller.org/ -->
+
 <ul>
 <li><code>gem install sass</code></li>
 <li>Command line: <code>sass --watch style.scss:style.css</code></li>
@@ -277,8 +279,7 @@ $bodyMargin: 10px;
       <h2>Mixins: roll your own</h2>
       <h3></h3>
     </hgroup>
-    <article ><p><strong>Mixins allow you to:</strong></p>
-<p>Automate common workflows</p>
+    <article ><p>Automate common workflows</p>
 <p>Effectively Leverage SASS functions</p>
 <p>Easily develop your own toolkit or framework</p>
 <ul class="build">
@@ -366,9 +367,9 @@ $bodyMargin: 10px;
     <article ><pre class="prettyprint small" data-lang="scss">
   .btn {
     background:blue;
-    padding: round(3.1415926)
+    padding: <b>round</b>(3.1415926)
     &:hover {
-      background:darken(blue,10%);
+      background:<b>darken</b>(blue,10%);
     }
   }
 </pre>
@@ -442,7 +443,7 @@ $bodyMargin: 10px;
   
     <hgroup>
       <h3>Why Compass?</h3>
-      <h2>Main features</h2>
+      <h2>Killer Features</h2>
       <h3></h3>
     </hgroup>
     <article ><ul class="build">
@@ -501,7 +502,7 @@ body {
       <h2>Grids with Susy</h2>
       <h3></h3>
     </hgroup>
-    <article ><figure class="ag-btn">
+    <article ><figure class="ag-test">
   <div class="ag1"><p><strong>Column</strong> 2 of&nbsp;10</p></div>
   <div class="ag2">
     <p><strong>Column</strong> 6 of&nbsp;10</p>
@@ -613,11 +614,22 @@ body {
  
 </slide>
 
+<slide class="segue" >
+  
+    <aside class="gdbar"><img src="source/images/sass-logo-128.png"></aside>
+    <hgroup class="auto-fadein">
+
+      <h2>Onward and Upward</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
 <slide  >
   
     <hgroup>
       <h3></h3>
-      <h2>That's cool; Why Bother?</h2>
+      <h2>Using Compass</h2>
       <h3></h3>
     </hgroup>
     <article ><ul class="build">
@@ -632,7 +644,7 @@ body {
   
     <hgroup>
       <h3></h3>
-      <h2>Sources/Additional Resources</h2>
+      <h2>Resources</h2>
       <h3></h3>
     </hgroup>
     <article ><ul>

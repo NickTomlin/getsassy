@@ -9,6 +9,7 @@ section: What is Sass?
 title: Setup
 
 <!-- - You need ruby to install and run SASS, which is already on your system if you are a mac user, and probably is included in your linux distro -->
+<!-- Windows users: http://rubyinstaller.org/ -->
 - ``gem install sass``
 - Command line: ``sass --watch style.scss:style.css``
 - GUI: CodeKit, LiveReload, compass APP
@@ -182,8 +183,6 @@ section: Why Sass?
 title: Mixins: roll your own
 build_lists: true
 
-<strong>Mixins allow you to:</strong>
-
 Automate common workflows
 
 Effectively Leverage SASS functions
@@ -255,9 +254,9 @@ title: built in functions
 <pre class="prettyprint small" data-lang="scss">
   .btn {
     background:blue;
-    padding: round(3.1415926)
+    padding: <b>round</b>(3.1415926)
     &:hover {
-      background:darken(blue,10%);
+      background:<b>darken</b>(blue,10%);
     }
   }
 </pre>
@@ -315,7 +314,7 @@ Compass will watch and compile all scss files in your stylesheet directory
 ---
 
 section: Why Compass?
-title: Main features
+title: Killer Features
 build_lists: true
 
 - CSS3 Mixins
@@ -363,7 +362,7 @@ body {
 section: Why Compass?
 title: Grids with Susy
 
-<figure class="ag-btn">
+<figure class="ag-test">
   <div class="ag1"><p><strong>Column</strong> 2 of&nbsp;10</p></div>
   <div class="ag2">
     <p><strong>Column</strong> 6 of&nbsp;10</p>
@@ -453,7 +452,11 @@ class:
 <!-- You can easily swap out sprites without having to resprite the whole image  -->
 
 ---
-title: That's cool; Why Bother?
+title: Onward and Upward
+class: segue
+<!-- Let's get practical :)  -->
+---
+title: Using Compass
 build_lists:true
 
 - Baby Steps: you can use as much or as little as you need
@@ -461,7 +464,7 @@ build_lists:true
 - Be amazed at the time you save
 
 ---
-title: Sources/Additional Resources
+title: Resources
 
 - [http://thesassway.com/](http://thesassway.com/)
 - [http://chriseppstein.github.com/](http://chriseppstein.github.com/)

@@ -2,7 +2,6 @@ var SLIDE_CONFIG = {
   // Slide settings
   settings: {
     title: 'Sass and Compass',
-    subtitle: 'Joke about being sassy',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
