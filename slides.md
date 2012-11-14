@@ -313,7 +313,7 @@ Compass will watch and compile all scss files in your stylesheet directory
 ---
 
 section: Why Compass?
-title: Killer Features
+title: Features
 build_lists: true
 
 - CSS3 Mixins
