@@ -1648,12 +1648,3 @@ aside.gdbar img {
 .ag-test .ag7 {
   background: #f6d784;
 }
-
-/* line 1188, ../scss/default.scss */
-.test {
-  padding: 3;
-}
-/* line 1190, ../scss/default.scss */
-.test:hover {
-  background: #0000cc;
-}

@@ -1184,10 +1184,3 @@ background: #f6d784;
 }
 
 } // ag.test
-
-.test {
-    padding: round(3.1415926);
-    &:hover {
-      background:darken(blue,10%);
-    }
-}

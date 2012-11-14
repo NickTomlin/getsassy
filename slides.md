@@ -40,8 +40,7 @@ $margin: 16px;
 
 .content-navigation {
   border-color: $primary;
-  color:
-    darken($primary, 9%);
+  color:darken($primary, 9%);
 }
 
 .border {
@@ -471,3 +470,5 @@ title: Resources
 - [Compass-project.org](compass-project.org)
 - [CSS-Tricks on sass](http://css-tricks.com/search-results/?q=sass)
 - [#sass on Stack Oveflow](www.stackoverflow.com)
+
+<b>Slides @ [https://github.com/NickTomlin/getsassy](https://github.com/NickTomlin/getsassy)</b>
