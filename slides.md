@@ -141,38 +141,46 @@ title: @extend
 <pre class="prettyprint small" data-lang="scss">
   .btn {
     display:inline-block;
-    border-radius:4p;
+    border-radius:4px;
   }
 
-  .cta {
+  .btn-cta {
     @extend .btn;
     font-weight:bold;
   }
 
-  .warn {
-    @extend .btn;
-    @extend .cta;
+  .btn-cta-warn {
+    @extend .btn-cta;
     color:red;
   }
+  // be careful...
 
 
-<!-- .widget .blog widget etc.   -->
+<!--
+because:
+- you can create a web of "dependencies" by extending too much.
+  - one innocuous change can break LOTS of things
+- only extend within the same type of component to reduce chances of breakage
+- multiple classnames are not a bad thing.
+  - class="btn btn-cta cta-block" may be more to type,
+    but it's also a way of declaring intent.
+-->
 
 </pre>
 <pre class="prettyprint small" data-lang="css">
 
- .btn, .cta, .warn {
-   display: inline-block;
-   border-radius: 4p;
- }
+.btn, .btn-cta, .btn-warn {
+  display: inline-block;
+  border-radius: 4px;
+}
 
- .cta, .warn {
-   font-weight: bold;
- }
+.btn-cta, .btn-warn {
+  font-weight: bold;
+}
 
- .warn {
-   color: red;
- }
+.btn-warn {
+  color: red;
+}
 
 </pre>
 </div>
@@ -275,7 +283,7 @@ title: Partials
 
 <pre>
   styles
-    |--- base.scss // the mothership
+    |--- app.scss // the mothership
     |--- <b>_type.scss</b>
     |--- <b>_widgets.scss</b>
     |--- <b>_layout.scss</b>
